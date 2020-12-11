@@ -15,10 +15,17 @@ import time
 import datetime
 import concurrent.futures
 import subprocess
+import random
 
+timer1 = time.perf_counter()
 
 ### Create custom logging
-
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter("%(asctime)s---> %(message)s")
+file_handler = logging.FileHandler("Bot_Guessing_Game.log")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 ### Create random integer with generator
 
