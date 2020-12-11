@@ -17,7 +17,8 @@ import concurrent.futures
 import subprocess
 import random
 
-timer1 = time.perf_counter()
+timer1 = time.perf_counter_ns()
+
 
 ### Create custom logging
 logger = logging.getLogger(__name__)
@@ -31,15 +32,24 @@ logger.addHandler(file_handler)
 i1 = random.random()
 # print(i1)
 
-def generate_random_number():
-    number_list = []
+random1 = random.randint(1, 69)
+random2 = random.randint(1,26)
+num_range = random1 ** random2
+print(num_range)
 
-    for line in range(10):
-        line = random.random()
-        number_list.append(line)
+
+def generate_random_number():
+    generated_numbers = []
+
+    for number in range(2): # What is a good random number for number of guesses?
+        number = random.randint(1, 2) #what is a good random number for maximum?
+        # number = str(number).split(".")[1]
+
+        generated_numbers.append(number)
+        print(type(number))
     
     #print(number_list)
-    yield number_list
+    yield generated_numbers
 
 for item in generate_random_number():
     print(item)
