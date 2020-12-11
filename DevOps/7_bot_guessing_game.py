@@ -32,17 +32,23 @@ logger.addHandler(file_handler)
 i1 = random.random()
 # print(i1)
 
-random1 = random.randint(1, 69)
-random2 = random.randint(1,26)
-num_range = random1 ** random2
-print(num_range)
-
 
 def generate_random_number():
+
+    guess_range = random.random()
+    guess_range = str(guess_range).split(".")[1]
+    guess_range = int(guess_range)
+    print(guess_range)
+
+    max_number = random.random()
+    max_number = str(max_number).split(".")[1]
+    max_number = int(max_number) + guess_range
+    print(max_number)
+
     generated_numbers = []
 
-    for number in range(2): # What is a good random number for number of guesses?
-        number = random.randint(1, 2) #what is a good random number for maximum?
+    for number in range(2):
+        number = random.randint(1, 2)
         # number = str(number).split(".")[1]
 
         generated_numbers.append(number)
