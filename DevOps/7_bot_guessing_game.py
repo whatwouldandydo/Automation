@@ -28,7 +28,21 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 ### Create random integer with generator
+i1 = random.random()
+# print(i1)
 
+def generate_random_number():
+    number_list = []
+
+    for line in range(10):
+        line = random.random()
+        number_list.append(line)
+    
+    #print(number_list)
+    yield number_list
+
+for item in generate_random_number():
+    print(item)
 
 ### Compare random integer with corrected number
 
