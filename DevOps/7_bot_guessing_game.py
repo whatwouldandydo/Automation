@@ -26,7 +26,7 @@ t2 = time.time()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s---> %(message)s")
-file_handler = logging.FileHandler("Bot_Guessing_Game.log")
+file_handler = logging.FileHandler("~/Projects/Automation/Logs/7_Bot_Guessing_Game.log")
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
@@ -62,6 +62,9 @@ def compare_numbers(cnumber):
         if guess == correct_number:
             logger.debug(f"It takes {time.time() - timer1} to guess the correct number {guess}")
             # print(f"guess, correct_number {guess} {correct_number}")
+            cd_cmd = subprocess.run("cd ~/Projects/Automation/Logs")
+            git_add_cmd = subprocess.run("git add 7_Bot_Guessing_Game.log")
+            git_commit_cmd = subprocess.run("git commit -m ")
         else:
             print(f"WRONG {guess} It takes {time.time() - timer1}")
 
