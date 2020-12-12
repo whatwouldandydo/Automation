@@ -62,7 +62,6 @@ def compare_numbers(cnumber):
         if guess == correct_number:
             logger.debug(f"It takes {time.time() - timer1} to guess the correct number {guess}")
             # print(f"guess, correct_number {guess} {correct_number}")
-
         else:
             print(f"WRONG {guess} It takes {time.time() - timer1}")
 
