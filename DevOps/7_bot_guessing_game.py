@@ -34,50 +34,36 @@ logger.addHandler(file_handler)
 i1 = random.random()
 # print(i1)
 
+def generate_numbers(arg_number):
+    for number in range(arg_number):
+        number = random.random()
+        number = str(number).split(".")[1]
+        number = str(number).split("e")[0]
+        # number = int(str(number).split(".")[1])
+        # number = random.randint(1,10)
+        number = int(number)
+        yield number
 
-def generate_random_number():
-
-    guess_range = time.time()
-    guess_range = str(guess_range).split(".")
-    guess_range = int(guess_range[0]) - int(guess_range[1])
-    print(f"Guess range {guess_range}")
-
-    generated_numbers = []
-
-    count = 0
-
-    for number in range(10): # Replace (2) with guess_range
-        number = random.randint(1,10)
-        # number = random.random()
-        # number = str(number).split(".")[1]
-
-        generated_numbers.append(number)
-        # print(type(number))
-        # count += 1
-        # print(count)
-        # yield number
-
-    print(f"generated_numbers {generated_numbers}")
-    yield generated_numbers
+num_of_guesses = int(time.time_ns())
+# print(num_of_guesses)
+        
+random_numbers = generate_numbers(10) #Use num_of_guesses for argument
+# print(next(random_numbers))
 
 
 ### Compare random integer with corrected number
-correct_number = random.randint(1,2)
-# correct_number = random.random()
-# correct_number = int(str(correct_number).split(".")[1])
-# correct_number = int(correct_number)
+correct_number = random.random()
+correct_number = int(str(correct_number).split(".")[1])
+# correct_number = random.randint(1,10)
 print(f"correct_number {correct_number}")
 
-# count = 0
-for guessed_number in generate_random_number():
-    print(guessed_number)
-    # count +=1 
-    # print(count)
-    # print(guessed_number)
-    # if guessed_number == correct_number:
-    #     print(guessed_number)
-    # else:
-    #     print("OUCH", guessed_number)
+for guess in random_numbers:
+    # print(guess)
+    if guess == correct_number:
+        print(f"guess, correct_number {guess} {correct_number}")
+    else:
+        print(f"WRONG {guess}")
+
 
 
 ### Run comparision as multithread
