@@ -17,7 +17,7 @@ import concurrent.futures
 import subprocess
 import random
 
-timer1 = time.perf_counter_ns()
+timer1 = time.time()
 t2 = time.time()
 # print(timer1, t2)
 
@@ -31,11 +31,8 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 ### Create random integer with generator
-i1 = random.random()
-# print(i1)
-
-def generate_numbers(arg_number):
-    for number in range(arg_number):
+def generate_numbers(gnumber):
+    for number in range(gnumber):
         number = random.random()
         number = str(number).split(".")[1]
         number = str(number).split("e")[0]
@@ -52,18 +49,24 @@ random_numbers = generate_numbers(10) #Use num_of_guesses for argument
 
 
 ### Compare random integer with corrected number
-correct_number = random.random()
-correct_number = int(str(correct_number).split(".")[1])
-# correct_number = random.randint(1,10)
-print(f"correct_number {correct_number}")
+def compare_numbers(cnumber):
+    correct_number = random.random()
+    correct_number = str(correct_number).split(".")[1]
+    correct_number = str(correct_number).split("e")[0]
+    correct_number = int(correct_number)
+    # correct_number = random.randint(1,10)
+    print(f"correct_number {correct_number}")
 
-for guess in random_numbers:
-    # print(guess)
-    if guess == correct_number:
-        print(f"guess, correct_number {guess} {correct_number}")
-    else:
-        print(f"WRONG {guess}")
+    for guess in cnumber:
+        # print(guess)
+        if guess == correct_number:
+            logger.debug(f"It takes {time.time() - timer1} to guess the correct number {guess}")
+            # print(f"guess, correct_number {guess} {correct_number}")
 
+        else:
+            print(f"WRONG {guess} It takes {time.time() - timer1}")
+
+compare = compare_numbers(random_numbers)
 
 
 ### Run comparision as multithread
