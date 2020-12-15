@@ -26,7 +26,7 @@ t2 = time.ctime()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s---> %(message)s")
-file_handler = logging.FileHandler("Automation/Logs/7_Bot_Guessing_Game.log")
+file_handler = logging.FileHandler("/home/do/Projects/Automation/Logs/7_Bot_Guessing_Game.log")
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
