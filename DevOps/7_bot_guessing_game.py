@@ -17,6 +17,9 @@ import concurrent.futures
 import subprocess
 import random
 
+### Create Timer to track executing time
+timer1 = time.time()
+
 ### Create custom logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
