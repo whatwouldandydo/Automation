@@ -28,6 +28,9 @@ file_handler = logging.FileHandler("/home/do/Projects/Automation/Logs/7_Bot_Gues
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
+### Create a log session whenever the program run = new game
+logger.debug(f"########## New Game Starts on {time.ctime()} Pacific Time ##########")
+
 ### Create random integer with generator
 def generate_numbers(gnumber):
     for number in range(gnumber):
@@ -37,9 +40,9 @@ def generate_numbers(gnumber):
         number = int(number)
         yield number
 
-num_of_guesses = int(time.time_ns())
-        
-random_numbers = generate_numbers(1000) #Use num_of_guesses for argument
+num_of_guesses = int(str(time.time()).split(".")[1])
+
+random_numbers = generate_numbers(num_of_guesses) #Use num_of_guesses for argument
 
 ### Compare random integer with corrected number
 def compare_numbers(guess):
@@ -58,9 +61,12 @@ def compare_numbers(guess):
         git_push_cmd = subprocess.run("git push origin master", shell=True)
 
 ### Run comparision as multithread
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    threads = executor.map(compare_numbers, random_numbers)
+# with concurrent.futures.ThreadPoolExecutor() as executor:
+#     threads = executor.map(compare_numbers, random_numbers)
 
-print(time.time() - timer1)
+### Run in infinite loop with multithread
+while True:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        threads = executor.map(compare_numbers, random_numbers)
 
 ######################## End Code ########################
