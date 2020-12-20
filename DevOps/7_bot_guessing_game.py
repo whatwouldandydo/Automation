@@ -51,14 +51,21 @@ def compare_numbers(guess):
     correct_number = str(correct_number).split("e")[0]
     correct_number = int(correct_number)
 
+    cd_cmd = "cd /home/do/Projects/Automation/Logs/"
+    git_checkout_cmd = "git checkout master"
+    git_add_cmd = "git add 7_Bot_Guessing_Game.log"
+    git_commit_cmd = f"git commit -m 'Commit {guess} on {time.ctime()}'"
+    git_push_cmd = "git push origin master"
+
+
     if guess == correct_number:
         print(f"The correct number {guess} takes {time.time() - timer1} seconds to find.")
         logger.debug(f"The correct number {guess} takes {time.time() - timer1} seconds to find.")
-        cd_cmd = subprocess.run("cd /home/do/Projects/Automation/Logs/", shell=True)
-        git_checkout_cmd = subprocess.run("git checkout master", shell=True)
-        git_add_cmd = subprocess.run("git add 7_Bot_Guessing_Game.log", shell=True)
-        git_commit_cmd = subprocess.run(f"git commit -m 'Commit {guess} on {time.ctime()}'", shell=True)
-        git_push_cmd = subprocess.run("git push origin master", shell=True)
+        subprocess.run(cd_cmd, shell=True)
+        subprocess.run(git_checkout_cmd, shell=True)
+        subprocess.run(git_add_cmd, shell=True)
+        subprocess.run(git_commit_cmd, shell=True)
+        subprocess.run(git_push_cmd, shell=True)
 
 ### Run comparision as multithread
 # with concurrent.futures.ThreadPoolExecutor() as executor:
