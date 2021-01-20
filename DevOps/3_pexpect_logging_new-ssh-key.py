@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter("%(asctime)s--%(name)s--%(levelname)s--> %(message)s")
-log_file = "/home/do/Desktop/Projects/Logs/3_pexpect_ssh-new-key.log"
+log_file = "3_pexpect_ssh-new-key.log"
 file_handler = logging.FileHandler(log_file)
 file_handler.setFormatter(formatter)
 
@@ -37,7 +37,7 @@ username = "admin"
 password = "devops"
 
 ## Open devices from a file
-device_file = "/home/do/Desktop/Projects/DevOps/devices.txt"
+device_file = "devices.txt"
 with open(device_file) as f:
     devices_txt = f.read().splitlines()
 

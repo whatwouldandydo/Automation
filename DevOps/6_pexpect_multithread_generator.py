@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s--%(name)s--%(levelname)s---> %(message)s")
 formatter2 = logging.Formatter("%(asctime)s--%(levelname)s---> %(message)s")
-file_handler = logging.FileHandler("/home/do/Projects/Automation/Logs/6_pexpect_multithread_generator.log")
+file_handler = logging.FileHandler("6_pexpect_multithread_generator.log")
 file_handler.setFormatter(formatter)
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(formatter2)
@@ -42,7 +42,7 @@ youtube_ad_request = requests.get(youtube_ad_url)
 
 logger.debug("Downloaded Pihole Blocklist")
 
-save_file = "/home/do/Projects/Automation/DevOps/blocklist.txt"
+save_file = "blocklist.txt"
 
 with open(save_file, "w") as f:
     for line in youtube_ad_request.text.split("\r"):

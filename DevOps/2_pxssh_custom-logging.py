@@ -17,7 +17,7 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter("%(asctime)s--%(levelname)s:%(lineno)d--->%(message)s")
 
-log_file = "/home/do/Desktop/Projects/Logs/2_pxssh_custom-logging.log"
+log_file = "2_pxssh_custom-logging.log"
 
 file_handle = logging.FileHandler(log_file)
 file_handle.setFormatter(formatter)

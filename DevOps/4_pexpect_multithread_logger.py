@@ -18,7 +18,7 @@ import datetime
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s--%(name)s--%(levelname)s---> %(message)s")
-file_handler = logging.FileHandler("/home/do/Desktop/Projects/Logs/4_pexpect_multithread_logger.log")
+file_handler = logging.FileHandler("4_pexpect_multithread_logger.log")
 file_handler.setFormatter(formatter)
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(formatter)
@@ -30,7 +30,7 @@ username = input("Username: ")
 password = getpass.getpass()
 
 ## Open network devices from a file
-device_file = "/home/do/Desktop/Projects/DevOps/devices.txt"
+device_file = "devices.txt"
 
 with open(device_file) as f:
     devices_txt = f.read().splitlines()

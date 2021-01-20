@@ -23,7 +23,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s--%(name)s--%(levelname)s---> %(message)s")
 formatter2 = logging.Formatter("%(asctime)s--%(levelname)s---> %(message)s")
 
-log_handler = logging.FileHandler("/home/do/Desktop/Projects/Logs/5_pexpect_multhread_log_cli-file.log")
+log_handler = logging.FileHandler("5_pexpect_multhread_log_cli-file.log")
 log_handler.setFormatter(formatter)
 
 console_handler = logging.StreamHandler()
@@ -34,7 +34,7 @@ logger.addHandler(console_handler)
 
 
 ## Open network devices from file
-devices_file = "/home/do/Desktop/Projects/DevOps/devices.txt"
+devices_file = "devices.txt"
 
 with open(devices_file, "r") as f:
     devices_txt = f.read().splitlines() #print ['10.10.10.201', '10.10.10.202', '10.10.10.203', '10.10.10.204']
@@ -50,7 +50,7 @@ with open(devices_file, "r") as f:
     # devices_txt = f.readlines() #print ['10.10.10.201\n', '10.10.10.202\n', '10.10.10.203\n', '10.10.10.204\n']
 
 ## Open network commands from a file
-commands_file = "/home/do/Desktop/Projects/DevOps/commands.txt"
+commands_file = "commands.txt"
 with open(commands_file, "r") as f:
     commands_txt = f.read().splitlines()
 
