@@ -24,7 +24,7 @@ timer1 = time.time()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s---> %(message)s")
-file_handler = logging.FileHandler("/home/do/Projects/Automation/Logs/7_Bot_Guessing_Game.log")
+file_handler = logging.FileHandler("7_Bot_Guessing_Game.log")
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
@@ -51,7 +51,7 @@ def compare_numbers(guess):
     correct_number = str(correct_number).split("e")[0]
     correct_number = int(correct_number)
 
-    cd_cmd = "cd /home/do/Projects/Automation/Logs/"
+    cd_cmd = "cd /home/do/Projects/Automation/DevOps/"
     git_checkout_cmd = "git checkout master"
     git_add_cmd = "git add 7_Bot_Guessing_Game.log"
     git_commit_cmd = f"git commit -m 'Commit {guess} on {time.ctime()}'"

@@ -17,7 +17,7 @@ import getpass
 import logging
 
 ## Enable logging
-log_file = "/home/do/Desktop/Projects/Logs/1_demo_template_pexpect-ssh_prompts.log"
+log_file = "1_demo_template_pexpect-ssh_prompts.log"
 logging.basicConfig(filename=log_file, level=logging.DEBUG,
                     format="%(asctime)s--%(levelname)s:%(lineno)d-->%(message)s")
 
